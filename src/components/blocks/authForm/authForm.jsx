@@ -2,9 +2,11 @@ import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 import {AuthGoogleButton, LoginWrapper, StyledSection} from './styles.js';
 import {useContext} from 'react';
 import {Context} from '../../../app/app.jsx';
+import {useAuthState} from 'react-firebase-hooks/auth';
 
 const AuthForm = () => {
   const {auth} = useContext(Context);
+  const [user] = useAuthState(auth);
 
   const login = async () => {
     const provider = new GoogleAuthProvider()
@@ -16,7 +18,11 @@ const AuthForm = () => {
     <StyledSection>
       <LoginWrapper>
         <AuthGoogleButton onClick={login}>
-          Войти через Google
+          {user ?
+              'Сменить аккаунт'
+            :
+              'Войти через Google'
+          }
         </AuthGoogleButton>
       </LoginWrapper>
     </StyledSection>

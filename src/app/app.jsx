@@ -1,4 +1,3 @@
-import 'firebase/firestore';
 import {initializeApp} from 'firebase/app';
 import GlobalStyles from './styles.js';
 import Router from '../routes/Routes.jsx';
@@ -23,7 +22,8 @@ const appFirebase = initializeApp(firebaseConfig);
 export const Context = createContext(null);
 
 const auth = getAuth(appFirebase);
-const firestore = getFirestore(appFirebase)
+const firestore = getFirestore(appFirebase);
+
 
 
 const App = () => {

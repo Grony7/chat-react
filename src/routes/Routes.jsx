@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 
 import {routes} from './routes.data'
-import NotFound from '../components/pages/not-found/not-found';
+import NotFound from '../components/pages/notFound/notFound.jsx';
 import PageWrapper from '../components/layout/page-wrapper/page-wrapper.jsx';
 
 const Router = () => {

@@ -1,10 +1,8 @@
-import AuthForm from '../../blocks/AuthForm/AuthForm.jsx';
+import AuthForm from '../../blocks/authForm/authForm.jsx';
 
 const LoginPage = () => {
   return (
-    <>
       <AuthForm />
-    </>
   );
 };
 

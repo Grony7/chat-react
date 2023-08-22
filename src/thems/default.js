@@ -7,6 +7,5 @@ export const defaultTheme = {
   indent: "20px",
   fontFamily: '"Inter", "Arial", sans-serif',
   fontSizeDefault: "18px",
-  footerHeight: "80px",
   pageWidth: "1280px"
 };

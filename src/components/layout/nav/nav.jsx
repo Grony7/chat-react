@@ -1,11 +1,11 @@
-import {NavLink} from './styles.js';
+import {NavLink, NavSection} from './styles.js';
 
 const Nav = () => {
   return (
-    <nav>
+    <NavSection>
       <NavLink to='/'>Главная</NavLink>
       <NavLink to='/chat'>Чат</NavLink>
-    </nav>
+    </NavSection>
   );
 };
 

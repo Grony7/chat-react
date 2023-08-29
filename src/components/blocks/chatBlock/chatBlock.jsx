@@ -3,9 +3,6 @@ import {
   Field,
   FieldButton,
   FieldWrapper,
-  MessageAuthor,
-  MessageAvatar, MessageText,
-  MessageWrapper,
   StyledSection
 } from './styles.js';
 import {useContext, useState} from 'react';
@@ -14,6 +11,7 @@ import {Context} from '../../../app/app.jsx';
 import {collection, query, orderBy, addDoc, serverTimestamp} from "firebase/firestore";
 import Loader from '../../ui/loader.jsx';
 import {useAuthState} from 'react-firebase-hooks/auth';
+import MessageComponent from '../../ui/messageComponent/messageComponent.jsx';
 
 const ChatBlock = () => {
   const {auth, firestore} = useContext(Context);
@@ -24,10 +22,10 @@ const ChatBlock = () => {
   const messagesQuery = query(messagesRef, orderBy("createdAt"));
   const [messages, loading] = useCollectionData(messagesQuery);
 
-  console.log(messages)
-
 
   const sendMessage = async () => {
+    if (!value) return;
+
     await addDoc(messagesRef, {
       uid: user.uid,
       displayName: user.displayName,
@@ -52,20 +50,22 @@ const ChatBlock = () => {
     <StyledSection>
       <ChatField>
         {
-          messages.map((message, index) => (
+          messages.map((message, index) => {
+            return (
+                <MessageComponent
+                  key={index}
+                  message={message}
+                  isMyMessage={message.uid === user.uid}/>
+              )
 
-              <MessageWrapper key={index}>
-                <MessageAvatar src={message.photoURL} width='30' height='30' alt='аватар' />
-                <MessageAuthor>{message.displayName}</MessageAuthor>
-                <MessageText>{message.text}</MessageText>
-              </MessageWrapper>
-            )
+
+            }
           )
         }
       </ChatField>
       <FieldWrapper>
         <Field value={value} onKeyDown={handleKeyDown} onChange={(e) => setValue(e.target.value)}/>
-        <FieldButton onClick={sendMessage}>
+        <FieldButton disabled={!value} onClick={sendMessage}>
           Отправить
         </FieldButton>
       </FieldWrapper>

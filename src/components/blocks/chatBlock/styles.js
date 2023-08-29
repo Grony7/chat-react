@@ -10,10 +10,14 @@ export const StyledSection = styled(Section)`
   background-color: ${(props) => props.theme.colorWhite};
 `;
 export const ChatField = styled.div `
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 70vh;
+  padding: 0 10px 10px;
   border: 1px solid #000;
   margin: 10px 0;
+  overflow: auto;
 `;
 
 export const FieldWrapper = styled.div`
@@ -28,27 +32,4 @@ export const Field = styled.input`
 
 export const FieldButton = styled.button`
   padding: 16px 8px;
-`;
-
-export const MessageWrapper = styled.div`
-  display: grid;
-  grid-auto-columns: auto 1fr;
-  grid-template-areas: 
-    'avatar name'
-    'avatar text';
-  max-width: 50%;
-`;
-
-export const MessageAvatar = styled.img`
-  grid-area: avatar;
-`;
-
-export const MessageAuthor = styled.span`
-  grid-area: name;
-  margin: 0 auto 0 0;
-`;
-
-export const MessageText = styled.p`
-  grid-area: text;
-  margin: 0 auto 0 0;
 `;

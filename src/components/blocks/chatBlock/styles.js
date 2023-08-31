@@ -14,10 +14,17 @@ export const ChatField = styled.div `
   flex-direction: column;
   width: 100%;
   height: 70vh;
-  padding: 0 10px 10px;
+  padding: 10px;
   border: 1px solid #000;
   margin: 10px 0;
   overflow: auto;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const FieldWrapper = styled.div`

@@ -40,7 +40,7 @@ export const MessageAuthor = styled.span`
   margin: 0 auto 8px 0;
   font-size: 18px;
   line-height: 20px;
-  color: #121241;
+  color: #3f6679;
 `;
 
 export const MessageText = styled.p`

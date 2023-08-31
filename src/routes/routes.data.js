@@ -11,7 +11,7 @@ export const routes = [
   {
     path: 'chat',
     component: ChatPage,
-    isAuth: false
+    isAuth: true
   },
   {
     path: 'login',
